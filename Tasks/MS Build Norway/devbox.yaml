@@ -1,0 +1,21 @@
+name: MSBuildNorway
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
+hostInformation: general_i_8c32gb512ssd_v2
+setupTasks:
+  - task: winget
+    inputs:
+      package: vscode
+  - task: winget
+    inputs:
+      package: OpenJS.NodeJS.LTS
+      version: 20.7.0
+  - task: winget
+    inputs:
+      package: Microsoft.Azd
+  - task: winget
+    inputs:
+      package: Microsoft.AzureCLI
+      version: 2.52.0
+  - task: winget
+    inputs:
+      package: Microsoft.PowerShell
