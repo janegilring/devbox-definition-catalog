@@ -17,3 +17,15 @@ setupTasks:
   - task: winget
     inputs:
       package: OpenJS.NodeJS.LTS
+  - task: powershell
+    description: print hello world
+    inputs:
+      command: "Write-Host 'hello, world!'"
+  - task: install-vs-extension
+    description: Install GitHub Copilot
+    inputs:
+       marketplaceItemName: GitHub.copilotvs
+  - task: install-vs-extension
+    description: Install PowerShell extension
+    inputs:
+       marketplaceItemName: ms-vscode.powershell
