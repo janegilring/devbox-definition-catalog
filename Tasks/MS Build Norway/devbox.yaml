@@ -7,15 +7,13 @@ setupTasks:
       package: vscode
   - task: winget
     inputs:
-      package: OpenJS.NodeJS.LTS
-      version: 20.7.0
-  - task: winget
-    inputs:
       package: Microsoft.Azd
   - task: winget
     inputs:
       package: Microsoft.AzureCLI
-      version: 2.52.0
   - task: winget
     inputs:
       package: Microsoft.PowerShell
+  - task: winget
+    inputs:
+      package: OpenJS.NodeJS.LTS
