@@ -4,7 +4,7 @@ hostInformation: general_i_8c32gb512ssd_v2
 setupTasks:
   - task: winget
     inputs:
-      package: vscode
+      package: Microsoft.VisualStudioCode
   - task: winget
     inputs:
       package: Microsoft.Azd
@@ -18,9 +18,9 @@ setupTasks:
     inputs:
       package: OpenJS.NodeJS.LTS
   - task: powershell
-    description: print hello world
+    description: print information
     inputs:
-      command: "Write-Host 'hello, world!'"
+      command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
   - task: install-vs-extension
     description: Install GitHub Copilot
     inputs:
