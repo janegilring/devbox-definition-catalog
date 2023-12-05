@@ -1,0 +1,20 @@
+name: FestiveTechCalendar
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
+hostInformation: general_i_8c32gb512ssd_v2
+setupTasks:
+  - task: winget
+    inputs:
+      package: Microsoft.VisualStudioCode
+  - task: winget
+    inputs:
+      package: Microsoft.Azd
+  - task: winget
+    inputs:
+      package: Microsoft.AzureCLI
+  - task: winget
+    inputs:
+      package: Microsoft.PowerShell
+  - task: powershell
+    description: print information
+    inputs:
+      command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
