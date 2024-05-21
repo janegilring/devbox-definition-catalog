@@ -1,20 +1,24 @@
-name: Contoso
-image: microsoftvisualstudio_windowsplustools_base-win11-gen2
-hostInformation: general_i_8c32gb256ssd_v2
-setupTasks:
-  - task: winget
-    inputs:
-      package: Microsoft.VisualStudioCode
-  - task: winget
-    inputs:
-      package: Microsoft.Azd
-  - task: winget
-    inputs:
-      package: Microsoft.AzureCLI
-  - task: winget
-    inputs:
-      package: Microsoft.PowerShell
-  - task: powershell
-    description: print information
-    inputs:
-      command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
+$schema: "1.0"
+name: contoso
+tasks:
+  - name: choco
+    parameters:
+      package: python3
+      version: 3.11.0
+  - name: powershell
+    parameters:
+      command: |
+        # Install robot framework
+        python.exe -m pip install --upgrade pip;
+        pip install robotframework
+  - name: powershell
+    parameters:
+      command: |
+        # Install WSL2 distros
+        wsl --install -d Ubuntu-22.04;
+
+        # Install VSCode extensions
+        code --install-extension ms-python.python;
+        code --install-extension ms-vscode-remote.remote-wsl;
+        code --install-extension d-biehl.robotcode
+      runAsUser: true
