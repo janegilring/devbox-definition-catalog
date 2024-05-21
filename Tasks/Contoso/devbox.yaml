@@ -2,19 +2,19 @@ name: Contoso
 image: microsoftvisualstudio_windowsplustools_base-win11-gen2
 hostInformation: general_i_8c32gb256ssd_v2
 setupTasks:
-  - task: winget
+  - task: vscode/winget
     inputs:
       package: Microsoft.VisualStudioCode
-  - task: winget
+  - task: azd/winget
     inputs:
       package: Microsoft.Azd
-  - task: winget
+  - task: azcli/winget
     inputs:
       package: Microsoft.AzureCLI
-  - task: winget
+  - task: ps7/winget
     inputs:
       package: Microsoft.PowerShell
-  - task: powershell
+  - task: script/powershell
     description: print information
     inputs:
       command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
