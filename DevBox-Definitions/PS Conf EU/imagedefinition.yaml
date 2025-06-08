@@ -1,27 +1,24 @@
-name: PSConfEU
+$schema: "1.0"
+name: "powershell-dev"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-hostInformation: general_i_8c32gb1024ssd_v2
-setupTasks:
-  - task: winget
-    inputs:
-      package: Microsoft.VisualStudioCode
-  - task: winget
-    inputs:
-      package: Microsoft.Azd
-  - task: winget
-    inputs:
-      package: Microsoft.AzureCLI
-  - task: winget
-    inputs:
-      package: Microsoft.PowerShell
-  - task: winget
-    inputs:
-      package: OpenJS.NodeJS.LTS
-  - task: install-vs-extension
-    description: Install GitHub Copilot
-    inputs:
-       marketplaceItemName: GitHub.copilotvs
-  - task: install-vs-extension
-    description: Install PowerShell extension
-    inputs:
-       marketplaceItemName: ms-vscode.powershell
+description: "This definition is for the eShop frontend engineering environment"
+
+tasks:
+  - name: winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/common-eng-sys/msft-git/dsc-configurations/common-config.dsc.yaml'
+
+  - name: winget
+    description: Install AZD
+    parameters:
+      package:  Microsoft.Azd
+
+  - name: winget
+    description: Install Visual Studio Code
+    parameters:
+      package:  Microsoft.VisualStudioCode
+
+  - name: powershell
+    parameters:
+      command: |
+        $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User')
