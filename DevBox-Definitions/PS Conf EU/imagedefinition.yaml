@@ -1,0 +1,31 @@
+name: PSConfEU
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
+hostInformation: general_i_8c32gb1024ssd_v2
+setupTasks:
+  - task: winget
+    inputs:
+      package: Microsoft.VisualStudioCode
+  - task: winget
+    inputs:
+      package: Microsoft.Azd
+  - task: winget
+    inputs:
+      package: Microsoft.AzureCLI
+  - task: winget
+    inputs:
+      package: Microsoft.PowerShell
+  - task: winget
+    inputs:
+      package: OpenJS.NodeJS.LTS
+  - task: powershell
+    description: print information
+    inputs:
+      command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
+  - task: install-vs-extension
+    description: Install GitHub Copilot
+    inputs:
+       marketplaceItemName: GitHub.copilotvs
+  - task: install-vs-extension
+    description: Install PowerShell extension
+    inputs:
+       marketplaceItemName: ms-vscode.powershell
