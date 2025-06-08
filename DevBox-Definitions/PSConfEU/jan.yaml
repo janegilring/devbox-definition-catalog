@@ -26,7 +26,6 @@ userTasks:
       downloadUrl: >-
         https://raw.githubusercontent.com/janegilring/devbox-definition-catalog/refs/heads/main/DevBox-Definitions/PSConfEU/jan_dsc.yaml
       configurationFile: C:\WinGetConfig\jan.dsc.yaml
-      runAsUser: 'true'
     description: >-
       Apply a WinGet configuration file, downloading from a public URL to the
       specified path, running as the user
