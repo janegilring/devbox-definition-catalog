@@ -17,10 +17,6 @@ setupTasks:
   - task: winget
     inputs:
       package: OpenJS.NodeJS.LTS
-  - task: powershell
-    description: print information
-    inputs:
-      command: Write-Output "Running as $(whoami)"| Out-File C:\DeployAgent\test.log
   - task: install-vs-extension
     description: Install GitHub Copilot
     inputs:
