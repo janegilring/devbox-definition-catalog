@@ -2,13 +2,6 @@
 properties:
   resources:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: git
-      directives:
-        description: Install Git
-      settings:
-        id: Git.Git
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: vscode
       directives:
         description: Install Visual Studio Code

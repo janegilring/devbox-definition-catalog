@@ -1,15 +1,15 @@
 $schema: "1.0"
 name: "devbox-customization"
 userTasks:
-  - name: ~/winget
+  - name: postman
     description: "Install Postman"
     parameters:
       package: Postman.Postman
   - name: git-clone
     parameters:
       repositoryUrl: https://github.com/psconfeu/2025
-      directory: C:\Workspaces
-    description: Clone this repository into C:\Workspaces
+      directory: D:\Workspaces
+    description: Clone this repository into D:\Workspaces
     metadata: {}
   - name: powershell
     parameters:
@@ -18,7 +18,7 @@ userTasks:
     metadata: {}
   - name: install-vs-extension
     parameters:
-      marketplaceItemName: GitHub.copilotvs
+      marketplaceItemName: github.copilot
     description: Install GitHub Copilot
     metadata: {}
   - name: winget
