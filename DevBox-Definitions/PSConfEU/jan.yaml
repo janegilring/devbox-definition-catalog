@@ -8,18 +8,13 @@ userTasks:
   - name: git-clone
     parameters:
       repositoryUrl: https://github.com/psconfeu/2025
-      directory: D:\Workspaces
-    description: Clone this repository into D:\Workspaces
+      directory: C:\Workspaces
+    description: Clone this repository into C:\Workspaces
     metadata: {}
   - name: powershell
     parameters:
       command: Write-Host 'hello, world!'
     description: print hello world
-    metadata: {}
-  - name: install-vs-extension
-    parameters:
-      marketplaceItemName: github.copilot
-    description: Install GitHub Copilot
     metadata: {}
   - name: winget
     parameters:
