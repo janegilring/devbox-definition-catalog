@@ -37,7 +37,7 @@ properties:
         id: Microsoft.Azure.AZCopy.10
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: DotNetSDK8
+      id: DotNetSDK9
       directives:
         description: Install Microsoft DotNet SDK 9
       settings:
