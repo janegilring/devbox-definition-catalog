@@ -1,24 +1,105 @@
 $schema: "1.0"
 name: "powershell-dev"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win11-m365-gen2
-description: "This definition is for the eShop frontend engineering environment"
-
-tasks:
-  - name: winget
+description: "This definition is for PowerShell development with essential tools and configurations."
+userTasks:
+  - name: __INTRINSIC_Winget__
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/common-eng-sys/msft-git/dsc-configurations/common-config.dsc.yaml'
-
-  - name: winget
-    description: Install AZD
+      package: Microsoft.Bicep
+    description: Install the Microsoft.Bicep package using Winget.
+  - name: __INTRINSIC_Winget__
     parameters:
-      package:  Microsoft.Azd
-
-  - name: winget
-    description: Install Visual Studio Code
+      package: Hashicorp.Terraform
+    description: Install the Hashicorp.Terraform package using Winget.
+  - name: __INTRINSIC_Winget__
     parameters:
-      package:  Microsoft.VisualStudioCode
-
-  - name: powershell
+      package: OpenJS.NodeJS.LTS
+    description: Install the OpenJS.NodeJS.LTS package using Winget.
+  - name: __INTRINSIC_Winget__
     parameters:
-      command: |
-        $env:Path = [System.Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [System.Environment]::GetEnvironmentVariable('Path','User')
+      package: Docker.DockerDesktop
+    description: Install the Docker.DockerDesktop package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Microsoft.Git
+    description: Install the Microsoft.Git package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Microsoft.PowerShell
+    description: Install the Microsoft.PowerShell package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Microsoft.AzureCLI
+    description: Install the Microsoft.AzureCLI package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Helm.Helm
+    description: Install the Helm.Helm package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Kubernetes.kubectl
+    description: Install the Kubernetes.kubectl package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Microsoft.DotNet.SDK.9
+    description: Install the Microsoft.DotNet.SDK.9 package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      package: Microsoft.VisualStudioCode
+    description: Install the Microsoft.VisualStudioCode package using Winget.
+  - name: __INTRINSIC_Winget__
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/common-eng-sys/msft-git/dsc-configurations/common-config.dsc.yaml'    
+  - name: __INTRINSIC_GitClone__
+    parameters:
+      repositoryUrl: https://github.com/janegilring/devbox-definition-catalog
+      directory: D:\\Workspaces
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension ms-azuretools.vscode-bicep
+    description: Execute the PowerShell command to install the VSCode extension 'ms-azuretools.vscode-bicep'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension ms-vscode.PowerShell
+      scriptExecutionPolicy: Bypass
+    description: Execute the command to install the VSCode extension 'ms-vscode.PowerShell' using PowerShell.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension GitHub.copilot
+      scriptExecutionPolicy: Bypass
+    description: Execute the command to install the VSCode extension 'GitHub.copilot' using PowerShell.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension DevCenter.ms-devbox
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the VSCode extension 'DevCenter.ms-devbox'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension ms-azuretools.vscode-azure-mcp-server
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the VSCode extension 'ms-azuretools.vscode-azure-mcp-server'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension bewhite.psrule-vscode
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the VSCode extension 'bewhite.psrule-vscode'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension GitHub.vscode-github-actions
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the VSCode extension 'GitHub.vscode-github-actions'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: code --install-extension ms-vscode.azurecli
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the VSCode extension 'ms-vscode.azurecli'.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: pwsh.exe -Command {. D:\Workspaces\devbox-definition-catalog\Scripts\Git\git-entra-auto-config.ps1; New-GitSigningKeyWithAutoConfig}
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to auto-configure Git with Entra ID and create a signing key.
+  - name: __INTRINSIC_PowerShell__
+    parameters:
+      command: Install-Module posh-git -Force -Scope CurrentUser;Add-PoshGitToProfile -AllHosts
+      scriptExecutionPolicy: Bypass
+    description: Execute a PowerShell command to install the posh-git module and add it to the PowerShell profile for all hosts.
